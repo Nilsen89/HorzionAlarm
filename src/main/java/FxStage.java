@@ -16,6 +16,7 @@ public class FxStage extends Application{
 		loader.setController(new MyController());
 		Parent root = loader.load();
 	    primaryStage.setScene(new Scene(root));
+	    primaryStage.setTitle("HORIZONALARM");
 	    
 		primaryStage.setResizable(false);
 		primaryStage.show();
