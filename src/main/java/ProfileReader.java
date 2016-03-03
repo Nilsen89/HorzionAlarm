@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 public class ProfileReader {
 	public static ArrayList<String> getMaps(String name) {
 		ArrayList<String> maps = new ArrayList<String>();
+		boolean runner = false;
+		WriteMapsToFile wmtf = new WriteMapsToFile();
 		try {
 			URLConnection profileURL = new URL("https://www.horizonservers.net/stats/"+name).openConnection();
 			profileURL.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
@@ -17,9 +19,18 @@ public class ProfileReader {
 			
 			String inputLine;
 	        while ((inputLine = br.readLine()) != null) {
-	        	if(inputLine.contains("class=\"map\">") && inputLine.contains("surf_")) {
-	        		maps.add(inputLine.substring(inputLine.indexOf(">surf_")+1, inputLine.length()-9));
+	        	if(!runner && inputLine.equals("<tbody>")) {
+	        		runner = true;
+	        		continue;
+	        	} else if(runner && inputLine.equals("</tbody>")) {
+	        		break;
+	        	} else {
+	        		wmtf.writeLineToFile(inputLine);
 	        	}
+	        	
+	        	/*if(inputLine.contains("class=\"map\">") && inputLine.contains("surf_")) {
+	        		maps.add(inputLine.substring(inputLine.indexOf(">surf_")+1, inputLine.length()-9));
+	        	}*/
 	        }
 	        br.close();
 		} catch(IOException e) {
