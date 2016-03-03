@@ -95,11 +95,15 @@ public class MyController implements Initializable {
 			if(!playerMaps.contains(currentMaps.get(mapsIndex).substring(currentMaps.get(mapsIndex).indexOf("surf_")))) {
 				mapToPlay.add(currentMaps.get(mapsIndex));
 			}
-		}
-		if(mapToPlay.size() > 0 && !oldMapToPlay.equals(mapToPlay)) {			
+		} 
+		if(mapToPlay.size() > 0 && !oldMapToPlay.equals(mapToPlay)) {
 			playAlarm();
 		}
-		oldMapToPlay = mapToPlay;
+		
+		oldMapToPlay.clear();
+		for(int i = 0; i < mapToPlay.size(); i++) {
+			oldMapToPlay.add(mapToPlay.get(i));
+		}
 	}
 
 	private void playAlarm() {
@@ -147,7 +151,7 @@ public class MyController implements Initializable {
 	private void startServerChecker() {
 		if(getPlayerMaps() && getServerInfo()) {
 			startAlarm();
-		} else {			
+		} else {
 			runner.stop();
 		}
 	}
@@ -180,9 +184,10 @@ public class MyController implements Initializable {
 					clearErrors();
 					if(hasSteamID() & hasCheckedServer()) {
 						startServerChecker();
-						runner = new Timeline(new KeyFrame(Duration.seconds(30), new EventHandler<ActionEvent>() {
+						runner = new Timeline(new KeyFrame(Duration.seconds(300), new EventHandler<ActionEvent>() {
 						    @Override
 						    public void handle(ActionEvent event) {
+						    	getServerInfo();
 						    	startAlarm();
 						    }
 						}));
