@@ -282,6 +282,7 @@ public class MapList {
 			"surf_borderlands",
 			"surf_chaos_fix",
 			"surf_colum_up",
+			"surf_crzyfrog_reloaded",
 			"surf_derpis_ksf",
 			"surf_forbidden_ways_ksf",
 			"surf_funhouse_njv",
@@ -301,6 +302,8 @@ public class MapList {
 			"surf_mom",
 			"surf_ninja_go_b5",
 			"surf_ny_momentum_v3_1",
+			"surf_physics",
+			"surf_pox",
 			"surf_prelude_ksf",
 			"surf_prime_time_r3vamp",
 			"surf_rebel_resistance_njv",
@@ -312,7 +315,8 @@ public class MapList {
 			"surf_trance_ksf",
 			"surf_utopia_njv",
 			"surf_utopia_v3",
-			"surf_water-run_banjo_skill"
+			"surf_water-run_banjo_skill",
+			"surf_year3000"
 	};
 	
 	public String[] getTier6Maps() {

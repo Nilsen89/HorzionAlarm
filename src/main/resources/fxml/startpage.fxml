@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="600.0" maxWidth="400.0" minHeight="600.0" minWidth="400.0" prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+  <columnConstraints>
+    <ColumnConstraints hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="NEVER" />
+    <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="NEVER" />
+      <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" vgrow="NEVER" />
+  </rowConstraints>
+   <children>
+      <ImageView pickOnBounds="true" GridPane.columnSpan="4" GridPane.rowSpan="4">
+         <image>
+            <Image url="@../images/bg.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+      </ImageView>
+      <ImageView fx:id="alarmBtn" onMouseClicked="#changeToAlarm" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <image>
+            <Image url="@../images/alarm.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="statisticBtn" onMouseClicked="#changeToStatistics" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <image>
+            <Image url="@../images/statistics.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="settingsBtn" onMouseClicked="#changeToSettings" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+         <image>
+            <Image url="@../images/setting.png" />
+         </image>
+      </ImageView>
+   </children>
+</GridPane>
